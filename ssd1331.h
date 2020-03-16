@@ -4,8 +4,8 @@
 #include <avr/pgmspace.h>
 
 #define VCCSTATE SSD1331_SWITCHCAPVCC
-#define OLED_WIDTH     96
-#define OLED_HEIGHT    64
+#define OLED_WIDTH 96
+#define OLED_HEIGHT 64
 
 #define PIN_RES 9
 #define PIN_DC 8
@@ -13,20 +13,21 @@
 #define PIN_DIN 11
 #define PIN_CLK 13
 
-#define RGB(R,G,B)  (((R >> 3) << 11) | ((G >> 2) << 5) | (B >> 3))
-enum Color {
-    BLACK     = RGB(  0,  0,  0), // black
-    GRAY      = RGB(192, 192, 192), // gray
-    WHITE     = RGB(255, 255, 255), // white
-    RED       = RGB(255,  0,  0), // red
-    PINK      = RGB(255, 192, 203), // pink
-    YELLOW    = RGB(255, 255,  0), // yellow
-    GOLDEN    = RGB(255, 215,  0), // golden
-    BROWN     = RGB(128, 42, 42), // brown
-    BLUE      = RGB(  0,  0, 255), // blue
-    CYAN      = RGB(  0, 255, 255), // cyan
-    GREEN     = RGB(  0, 255,  0), // green
-    PURPLE    = RGB(160, 32, 240), // purple
+#define RGB(R, G, B) (((R >> 3) << 11) | ((G >> 2) << 5) | (B >> 3))
+enum Color
+{
+    BLACK = RGB(0, 0, 0),       // black
+    GRAY = RGB(192, 192, 192),  // gray
+    WHITE = RGB(255, 255, 255), // white
+    RED = RGB(255, 0, 0),       // red
+    PINK = RGB(255, 192, 203),  // pink
+    YELLOW = RGB(255, 255, 0),  // yellow
+    GOLDEN = RGB(255, 215, 0),  // golden
+    BROWN = RGB(128, 42, 42),   // brown
+    BLUE = RGB(0, 0, 255),      // blue
+    CYAN = RGB(0, 255, 255),    // cyan
+    GREEN = RGB(0, 255, 0),     // green
+    PURPLE = RGB(160, 32, 240), // purple
 };
 
 void displayBegin();
@@ -40,10 +41,11 @@ void displayPrint(unsigned char x, unsigned char y, int num, unsigned char Size,
 void plotLine(int x0, int y0, int x1, int y1, unsigned short hwColor);
 void drawCircle(int x0, int y0, int r, unsigned char color);
 
+
+// 'IMG_20191026_072048', 96x64px
 static const unsigned char my_logo[1024] PROGMEM = {
-    // 'IMG_20191026_072048', 96x64px
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,//
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,//
     0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
     0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
     0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0xc0, 0x00, 0x00, 0x00, 0x00, 0x00,
